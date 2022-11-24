@@ -26,11 +26,13 @@ class UsuarioView(APIView):
     
 class UsuarioDetailView(APIView):
     
-    def get(self,request,usuario_id):
-        dataUsuarios = Usuario.objects.get(pk=usuario_id)
-        serUsuarios = UsuarioSerializer(dataUsuarios)
-        return Response(serUsuarios.data)
-    
+    def get(self,request,nombre, clave):
+        dataUsuarios = Usuario.objects.get(nombre=nombre)
+        if dataUsuarios.clave == clave:
+            serUsuarios = UsuarioSerializer(dataUsuarios)
+            return Response(serUsuarios.data)
+        else:
+            return Response([])
     def put(self,request,usuario_id):
         dataUsuarios = Usuario.objects.get(pk=usuario_id)
         serUsuarios = UsuarioSerializer(dataUsuarios,data=request.data)

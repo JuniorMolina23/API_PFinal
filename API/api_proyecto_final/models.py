@@ -12,6 +12,7 @@ class Usuario(models.Model):
     nombre= models.CharField(max_length=200)
     apellidos = models.CharField(max_length=200)
     email = models.CharField(max_length=200, default="")
+    clave = models.CharField(max_length=200, default="")
     estado = models.CharField(max_length=1,default="")
     sexo = models.CharField(max_length=1,default="")
     direccion = models.CharField(max_length=200,default="")

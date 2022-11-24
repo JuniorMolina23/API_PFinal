@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2k4v4x=u^vrfug&rsaq!(tq=4=o#q+&2+u#c9llux-vy&c7&lm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'HOST' : 'localhost',
         "PORT": "3306",
         "USER": "root",
-        "PASSWORD":"",
+        "PASSWORD":"junior23",
         "NAME":"django_api",
         "OPTIONS":{
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"

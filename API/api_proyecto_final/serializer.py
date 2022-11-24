@@ -5,7 +5,7 @@ from .models import *
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ('id', 'nombre', 'apellidos', 'email','estado','sexo','direccion','telefono','cargo_id')
+        fields = ('id', 'nombre', 'apellidos', 'email','clave','estado','sexo','direccion','telefono','cargo_id')
 
 class AlmacenSerializer(serializers.ModelSerializer):
     class Meta:
