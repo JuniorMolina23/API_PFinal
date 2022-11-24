@@ -26,3 +26,8 @@ class Detalle_almacenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Detalle_almacen
         fields = ('id','fecha','almacen_id','temperatura','usuario_id')
+
+class DetalleTemperaturaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DetalleTemperatura
+        fields = ('id','almacen_id','temp_ini','temp_fin')

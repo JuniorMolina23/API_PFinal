@@ -43,3 +43,10 @@ class EPP(models.Model):
     almacen_id = models.ForeignKey(Almacen, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre_epp
+
+class DetalleTemperatura(models.Model):
+    almacen_id = models.ForeignKey(Almacen, on_delete=models.CASCADE)
+    temp_ini = models.DecimalField(max_digits=5, decimal_places=2)
+    temp_fin = models.DecimalField(max_digits=5, decimal_places=2)
+    def __str__(self):
+        return str(self.almacen_id)

@@ -179,3 +179,37 @@ class Detalle_almacenDetailView(APIView):
         serDetalle = Detalle_almacenSerializer(dataDetalle)
         dataDetalle.delete()
         return Response(serDetalle.data)
+
+class DetalleTemperaturaView(APIView):
+    
+    def get(self,request):
+        dataDetalle = DetalleTemperatura.objects.all()
+        serDetalle = DetalleTemperaturaSerializer(dataDetalle,many=True)
+        return Response(serDetalle.data)
+    
+    def post(self,request):
+        serDetalle = DetalleTemperaturaSerializer(data=request.data)
+        serDetalle.is_valid(raise_exception=True)
+        serDetalle.save()
+        
+        return Response(serDetalle.data)
+    
+class DetalleTemperaturaDetailView(APIView):
+    
+    def get(self,request,detalle_id):
+        dataDetalle = DetalleTemperatura.objects.get(pk=detalle_id)
+        serDetalle = DetalleTemperaturaSerializer(dataDetalle)
+        return Response(serDetalle.data)
+    
+    def put(self,request,detalle_id):
+        dataDetalle = DetalleTemperatura.objects.get(pk=detalle_id)
+        serDetalle = DetalleTemperaturaSerializer(dataDetalle,data=request.data)
+        serDetalle.is_valid(raise_exception=True)
+        serDetalle.save()
+        return Response(serDetalle.data)
+    
+    def delete(self,request,detalle_id):
+        dataDetalle = DetalleTemperatura.objects.get(pk=detalle_id)
+        serDetalle = DetalleTemperaturaSerializer(dataDetalle)
+        dataDetalle.delete()
+        return Response(serDetalle.data)
